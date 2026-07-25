@@ -3,7 +3,7 @@ export function renderFooter() {
   <footer class="mt-16 border-t border-white/10 bg-noche-alta/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid gap-8 sm:grid-cols-3">
       <div>
-        <p class="font-display text-lg text-arena">METROPOLITANO</p>
+        <p class="font-display text-lg text-arena">VIVE METRO</p>
         <p class="mt-2 text-sm text-niebla max-w-xs">
           Estadio Metropolitano Roberto Meléndez — Barranquilla, Colombia.
           Prototipo de hackathon: asistencia inteligente para tu evento.

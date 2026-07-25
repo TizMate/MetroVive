@@ -48,7 +48,7 @@ export function renderHeader(activePath) {
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-center justify-between h-16 gap-4">
         <a href="#/" class="flex items-center gap-2 shrink-0">
-          <span class="font-display text-xl sm:text-2xl text-arena leading-none">METROPOLITANO</span>
+          <span class="font-display text-xl sm:text-2xl text-arena leading-none">VIVE METRO</span>
           <span class="hidden sm:inline text-[10px] font-mono text-niebla border border-white/15 rounded px-1.5 py-0.5">BAQ</span>
         </a>
 

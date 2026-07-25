@@ -12,12 +12,12 @@
 // "cards" estructuradas que devolvería el backend — para que la demo nunca
 // se vea rota.
 
-import { puertas, pois, transporte, parqueaderos, restaurantes, emergencias } from '../data/mock.js'
+import { puertas, pois, transporte, parqueaderos, restaurantes, emergencias, eventos } from '../data/mock.js'
 
 const CHAT_ENDPOINT = '/api/chat'
 
-const SYSTEM_PROMPT = `Eres el asistente inteligente del Estadio Metropolitano
-Roberto Meléndez en Barranquilla, Colombia (StadiumAI). Ayudas a los
+const SYSTEM_PROMPT = `Eres el asistente inteligente de Vive Metro, la app del
+Estadio Metropolitano Roberto Meléndez en Barranquilla, Colombia. Ayudas a los
 asistentes antes, durante y después de los eventos con tres capacidades:
 
 1. Orientación Inteligente: puertas de ingreso, baños, tiendas/comida,
@@ -116,6 +116,22 @@ function simulatedReply(history) {
   if (last.includes('parqu')) {
     return {
       reply: parqueaderos.map((p) => `${p.nombre} (${p.capacidad}, ${p.distancia})`).join(' · ') + ' (Respuesta simulada).',
+      cards: [],
+    }
+  }
+
+  if (last.includes('evento') || last.includes('partido') || last.includes('horario') || last.includes('boleta') || last.includes('entrada')) {
+    const proximo = eventos.find((e) => new Date(e.fecha) >= new Date()) ?? eventos[0]
+    return {
+      reply: `Próximo evento: ${proximo.nombre}, el ${proximo.fecha} a las ${proximo.hora}. Apertura de puertas: ${proximo.apertura}, ingreso ${proximo.ingreso}. ${proximo.recomendaciones} (Respuesta simulada).`,
+      cards: [],
+    }
+  }
+
+  if (last.includes('permitido') || last.includes('prohibido') || last.includes('puedo llevar') || last.includes('puedo ingresar')) {
+    const proximo = eventos.find((e) => new Date(e.fecha) >= new Date()) ?? eventos[0]
+    return {
+      reply: `Permitido: ${proximo.permitido.join(', ')}. Prohibido: ${proximo.prohibido.join(', ')}. ${proximo.seguridad} (Respuesta simulada).`,
       cards: [],
     }
   }

@@ -1,4 +1,4 @@
-# Estadio Metropolitano — Asistente Inteligente (prototipo hackathon)
+# Vive Metro — Asistente Inteligente (prototipo hackathon)
 
 Prototipo de app web para el Estadio Metropolitano Roberto Meléndez
 (Barranquilla). Stack: **HTML + JS puro (Vite) + Tailwind CSS v4**, con un
@@ -67,10 +67,10 @@ respuestas simuladas (`src/lib/chat.js`) para que la demo nunca se vea rota.
 
 ## Sistema de diseño
 
-Paleta inspirada en el Caribe y el Carnaval de Barranquilla (no la
-paleta genérica típica de IA): noche de estadio (`--color-noche`),
-turquesa Caribe (`--color-turquesa`), amarillo Carnaval
-(`--color-amarillo`) y coral (`--color-coral`). Tipografía: **Anton**
-(display, condensada, tipo marcador) + **Manrope** (texto) + **JetBrains
-Mono** (datos, horarios, chips). Definidos como tokens `@theme` en
-`src/style.css`.
+Paleta inspirada en el Junior de Barranquilla y la bandera de la ciudad
+(no la paleta genérica típica de IA): noche de estadio con tinte rojo
+(`--color-noche`), rojo Junior (`--color-turquesa`), amarillo de la
+bandera de Barranquilla (`--color-amarillo`) y coral para alertas
+(`--color-coral`). Tipografía: **Anton** (display, condensada, tipo
+marcador) + **Manrope** (texto) + **JetBrains Mono** (datos, horarios,
+chips). Definidos como tokens `@theme` en `src/style.css`.
