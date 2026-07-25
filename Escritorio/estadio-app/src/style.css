@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Sistema de diseño — Estadio Metropolitano Roberto Meléndez
+   Identidad: noche de estadio caribeño + energía de Carnaval.
+   No usar el terracota/crema genérico de IA, ni el dark+neón
+   default. Paleta propia inspirada en el mar Caribe, las luces
+   del estadio de noche y los colores del Carnaval de Barranquilla.
+   ------------------------------------------------------------- */
+@theme {
+  /* Color */
+  --color-noche: #0d1b2e;        /* fondo base, cielo nocturno de estadio */
+  --color-noche-alta: #142a45;   /* superficies elevadas sobre el fondo */
+  --color-arena: #fbf7ef;        /* fondo claro / tarjetas sobre noche */
+  --color-grafito: #1e2430;      /* texto sobre arena */
+  --color-turquesa: #17b8ac;     /* acento primario — mar Caribe */
+  --color-turquesa-alta: #1fd6c8;
+  --color-amarillo: #ffc53d;     /* acento Carnaval — CTAs, alertas suaves */
+  --color-coral: #ff6b5b;        /* acento cálido — urgencia/emergencias */
+  --color-niebla: #a9b7c9;       /* texto secundario sobre noche */
+
+  /* Tipografía */
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Radios contenidos — el estadio es firme, no burbujeante */
+  --radius-card: 0.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-noche);
+  color: var(--color-arena);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Enfoque de teclado visible en toda la app (accesibilidad) */
+:focus-visible {
+  outline: 2px solid var(--color-turquesa-alta);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-turquesa);
+  color: var(--color-noche);
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Ticker superior tipo marcador de estadio */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker-scroll 28s linear infinite;
+}
