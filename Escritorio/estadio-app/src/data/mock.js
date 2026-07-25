@@ -87,3 +87,64 @@ export const emergencias = {
   salidas: ['Puerta 1 – Norte', 'Puerta 4 – Oriental', 'Puerta 7 – Sur', 'Puerta 10 – Occidental'],
   protocolo: 'Ante cualquier emergencia, dirígete con calma a la salida señalizada más cercana y sigue las instrucciones del personal de logística.',
 }
+
+// ---------------------------------------------------------------
+// Datos de soporte para el chatbot (Módulo 1, 2 y 3 de StadiumAI).
+// En producción esto vendría de PostgreSQL + PostGIS; aquí son
+// reglas estáticas suficientes para que el asistente responda con
+// datos reales del recinto en vez de texto genérico.
+// ---------------------------------------------------------------
+
+// Módulo 1 — Orientación Inteligente: puertas por tribuna.
+export const puertas = {
+  NORTE: { puertas: ['Puerta 1', 'Puerta 2', 'Puerta 3'], salidaEmergencia: 'Puerta 1' },
+  SUR: { puertas: ['Puerta 7', 'Puerta 8', 'Puerta 9'], salidaEmergencia: 'Puerta 7' },
+  ORIENTAL: { puertas: ['Puerta 4', 'Puerta 5', 'Puerta 6'], salidaEmergencia: 'Puerta 4' },
+  OCCIDENTAL: { puertas: ['Puerta 10', 'Puerta 11', 'Puerta 12'], salidaEmergencia: 'Puerta 10' },
+}
+
+// Módulo 1 — Puntos de interés por tribuna (baños, primeros auxilios, tiendas, salidas).
+export const pois = [
+  { nombre: 'Baño Concourse Norte', categoria: 'BATHROOM', stand: 'NORTE', distancia: '40 m' },
+  { nombre: 'Baño Concourse Sur', categoria: 'BATHROOM', stand: 'SUR', distancia: '35 m' },
+  { nombre: 'Baño Concourse Oriental', categoria: 'BATHROOM', stand: 'ORIENTAL', distancia: '50 m' },
+  { nombre: 'Baño Concourse Occidental', categoria: 'BATHROOM', stand: 'OCCIDENTAL', distancia: '45 m' },
+  { nombre: 'Puesto de primeros auxilios Norte', categoria: 'FIRST_AID', stand: 'NORTE', distancia: '60 m' },
+  { nombre: 'Puesto de primeros auxilios Sur', categoria: 'FIRST_AID', stand: 'SUR', distancia: '55 m' },
+  { nombre: 'Puesto de primeros auxilios Oriental', categoria: 'FIRST_AID', stand: 'ORIENTAL', distancia: '70 m' },
+  { nombre: 'Puesto de primeros auxilios Occidental', categoria: 'FIRST_AID', stand: 'OCCIDENTAL', distancia: '65 m' },
+  { nombre: 'Fritos La 84', categoria: 'CONCESSION', stand: 'NORTE', distancia: '30 m' },
+  { nombre: 'Arepa Bar', categoria: 'CONCESSION', stand: 'SUR', distancia: '25 m' },
+  { nombre: 'Jugos del Caribe', categoria: 'CONCESSION', stand: 'ORIENTAL', distancia: '20 m' },
+  { nombre: 'Pizza Tribuna', categoria: 'CONCESSION', stand: 'OCCIDENTAL', distancia: '30 m' },
+  { nombre: 'Puerta 1 – Norte', categoria: 'EXIT', stand: 'NORTE', distancia: '80 m' },
+  { nombre: 'Puerta 7 – Sur', categoria: 'EXIT', stand: 'SUR', distancia: '75 m' },
+  { nombre: 'Puerta 4 – Oriental', categoria: 'EXIT', stand: 'ORIENTAL', distancia: '90 m' },
+  { nombre: 'Puerta 10 – Occidental', categoria: 'EXIT', stand: 'OCCIDENTAL', distancia: '85 m' },
+]
+
+// Módulo 2 — Servicio desde el Asiento: catálogo de productos.
+export const productos = [
+  { id: 'agua', nombre: 'Agua 500ml', categoria: 'Bebida', precio: 4000 },
+  { id: 'gaseosa', nombre: 'Gaseosa 400ml', categoria: 'Bebida', precio: 6000 },
+  { id: 'cerveza', nombre: 'Cerveza', categoria: 'Bebida', precio: 9000 },
+  { id: 'perro', nombre: 'Perro caliente', categoria: 'Snack', precio: 12000 },
+  { id: 'nachos', nombre: 'Nachos con queso', categoria: 'Snack', precio: 14000 },
+  { id: 'arepa', nombre: 'Arepa de huevo', categoria: 'Snack', precio: 10000 },
+]
+
+// Módulo 3 — Movilidad Inteligente: congestión por puerta (simulada) y recomendación.
+export const congestionPuertas = {
+  'Puerta 1': 'alta',
+  'Puerta 2': 'media',
+  'Puerta 3': 'baja',
+  'Puerta 4': 'alta',
+  'Puerta 5': 'media',
+  'Puerta 6': 'baja',
+  'Puerta 7': 'media',
+  'Puerta 8': 'baja',
+  'Puerta 9': 'baja',
+  'Puerta 10': 'baja',
+  'Puerta 11': 'media',
+  'Puerta 12': 'baja',
+}
