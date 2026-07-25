@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Sistema de diseño — Vive Metro (Estadio Metropolitano Roberto
+   Meléndez, Barranquilla)
+   Identidad: rojo y blanco del Junior de Barranquilla + el
+   amarillo de la bandera de la ciudad. No usar el terracota/crema
+   genérico de IA, ni el dark+neón default — la paleta es la del
+   Junior y el Carnaval, no una paleta corporativa cualquiera.
+   ------------------------------------------------------------- */
+@theme {
+  /* Color */
+  --color-noche: #1a0d0f;        /* fondo base, noche de estadio con tinte rojo */
+  --color-noche-alta: #2b1417;   /* superficies elevadas sobre el fondo */
+  --color-arena: #fbf7ef;        /* fondo claro / tarjetas sobre noche */
+  --color-grafito: #1e2430;      /* texto sobre arena */
+  --color-turquesa: #d62839;     /* acento primario — rojo Junior */
+  --color-turquesa-alta: #ff4757; /* rojo vivo — hover, destacados */
+  --color-amarillo: #ffc933;     /* amarillo de la bandera de Barranquilla — CTAs */
+  --color-coral: #ff7a45;        /* acento cálido — urgencia/emergencias */
+  --color-niebla: #bfaeae;       /* texto secundario sobre noche */
+
+  /* Tipografía */
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Radios contenidos — el estadio es firme, no burbujeante */
+  --radius-card: 0.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-noche);
+  color: var(--color-arena);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Enfoque de teclado visible en toda la app (accesibilidad) */
+:focus-visible {
+  outline: 2px solid var(--color-turquesa-alta);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-turquesa);
+  color: var(--color-noche);
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Ticker superior tipo marcador de estadio */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker-scroll 28s linear infinite;
+}

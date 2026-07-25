@@ -1,0 +1,16 @@
+{
+  "name": "estadio-chat-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend mínimo que conecta el chatbot del estadio con la API de Claude, manteniendo la API key fuera del navegador.",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
